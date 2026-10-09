@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Test online gratis de la Constitución Española para oposiciones: preguntas tipo test con la cita literal del BOE en cada respuesta y repaso espaciado. Sin registro. Actualizado a la reforma de 2026.">
+<link rel="canonical" href="https://rublg97.github.io/constitucion-en-calma/">
+<meta property="og:title" content="Test de la Constitución Española gratis para oposiciones | Constitución en Calma">
+<meta property="og:description" content="Test online gratis de la Constitución Española para oposiciones: preguntas tipo test con la cita literal del BOE en cada respuesta y repaso espaciado. Sin registro. Actualizado a la reforma de 2026.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rublg97.github.io/constitucion-en-calma/">
+<style>body{margin:0}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Test de la Constitución Española gratis para oposiciones | Constitución en Calma</title>
+<style>
+/* Una sola columna de estudio, como una ficha sobre la mesa: papel frío, tinta verde oscuro y madera clara para la racha. */
+:root{
+  --papel:#F5F7F3; --ficha:#FFFFFF; --tinta:#17211C; --tinta2:#55635B; --linea:#DCE2DB;
+  --pino:#2B6A4D; --pino-suave:#E3EFE7; --madera:#B98D54; --madera-suave:#F3EADB;
+  --mal:#B1432F; --mal-suave:#F8E6E1;
+  --titular:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --texto:"Atkinson Hyperlegible",Verdana,system-ui,sans-serif;
+  --r:10px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --papel:#111713; --ficha:#19211C; --tinta:#E7ECE7; --tinta2:#9BA9A0; --linea:#2C3731;
+  --pino:#7CC79E; --pino-suave:#1F3329; --madera:#D6B584; --madera-suave:#33291B;
+  --mal:#EE8B78; --mal-suave:#3A211C; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --papel:#111713; --ficha:#19211C; --tinta:#E7ECE7; --tinta2:#9BA9A0; --linea:#2C3731;
+  --pino:#7CC79E; --pino-suave:#1F3329; --madera:#D6B584; --madera-suave:#33291B;
+  --mal:#EE8B78; --mal-suave:#3A211C; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--papel);color:var(--tinta);font:16px/1.55 var(--texto)}
+.app{max-width:720px;margin:0 auto;padding-inline:16px;padding-block:20px 48px;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--titular);font-weight:700;line-height:1.15;margin:0;text-wrap:balance}
+h1{font-size:1.75rem} h2{font-size:1.25rem} h3{font-size:1rem}
+p{margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--pino);outline-offset:2px}
+.cab{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.marca{display:flex;align-items:center;gap:10px;font-family:var(--titular);font-weight:700;font-size:1.05rem}
+.marca svg{width:28px;height:28px;flex:none}
+.nav{display:flex;flex-wrap:wrap;gap:4px}
+.nav button{background:none;border:0;padding:8px 12px;border-radius:999px;color:var(--tinta2)}
+.nav button[aria-current="page"]{background:var(--tinta);color:var(--papel)}
+.col{display:flex;flex-direction:column;gap:16px}
+.fila{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.sub{color:var(--tinta2);font-size:.92rem}
+.eti{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta2)}
+.num{font-family:var(--titular);font-variant-numeric:tabular-nums}
+.ficha{background:var(--ficha);border:1px solid var(--linea);border-radius:var(--r);padding:20px}
+.hoy{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+.anillo{width:112px;height:112px;flex:none}
+.anillo text{font-family:var(--titular);font-weight:700;fill:var(--tinta)}
+.btn{background:var(--pino);color:var(--papel);border:0;border-radius:var(--r);padding:13px 20px;font-weight:700}
+.btn.sec{background:none;color:var(--tinta);border:1px solid var(--linea)}
+.btn.peligro{background:var(--mal);color:var(--papel)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.datos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.dato{border-top:2px solid var(--linea);padding-top:10px;min-width:0}
+.dato b{display:block;font-family:var(--titular);font-size:1.6rem;line-height:1.1;font-variant-numeric:tabular-nums}
+.dato.racha{border-color:var(--madera)} .dato.racha b{color:var(--madera)}
+.temas{display:flex;flex-direction:column}
+.tema{display:grid;grid-template-columns:1fr auto;gap:4px 16px;align-items:center;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--linea);padding:14px 4px}
+.tema:hover{background:var(--pino-suave)}
+.tema .barra{grid-column:1/-1}
+.barra{height:6px;border-radius:3px;background:var(--linea);overflow:hidden}
+.barra i{display:block;height:100%;background:var(--pino);border-radius:3px}
+.pregunta{font-family:var(--titular);font-weight:500;font-size:1.3rem;line-height:1.3}
+.ops{display:flex;flex-direction:column;gap:10px}
+.op{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;text-align:left;width:100%;background:var(--ficha);border:1px solid var(--linea);border-radius:var(--r);padding:14px}
+.op .letra{font-family:var(--titular);font-weight:700;color:var(--tinta2)}
+.op:not(:disabled):hover{border-color:var(--pino)}
+.op.sel{border-color:var(--pino);background:var(--pino-suave)}
+.op.bien{border-color:var(--pino);background:var(--pino-suave)} .op.bien .letra{color:var(--pino)}
+.op.mal{border-color:var(--mal);background:var(--mal-suave)} .op.mal .letra{color:var(--mal)}
+.op:disabled{cursor:default;color:inherit}
+.boe{border:1px dashed var(--tinta2);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.boe .ref{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+.boe .ref b{font-family:var(--titular)}
+.boe q{quotes:"«" "»"}
+.veredicto{font-family:var(--titular);font-weight:700}
+.veredicto.bien{color:var(--pino)} .veredicto.mal{color:var(--mal)}
+.nota{font-family:var(--titular);font-weight:700;font-size:3.4rem;line-height:1;font-variant-numeric:tabular-nums}
+.aviso{background:var(--madera-suave);border-radius:var(--r);padding:12px 16px}
+.aviso a{color:inherit;font-weight:700}
+.fallo{border-top:1px solid var(--linea);padding-top:14px;display:flex;flex-direction:column;gap:8px}
+.tuya{color:var(--mal)} .buena{color:var(--pino)}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:8px 6px;border-top:1px solid var(--linea)}
+th{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta2);font-weight:400}
+.pie{color:var(--tinta2);font-size:.85rem}
+@media (max-width:460px){.hoy{grid-template-columns:1fr}.pregunta{font-size:1.15rem}.nota{font-size:2.8rem}}
+@media (prefers-reduced-motion:no-preference){.barra i{transition:width .4s ease}.op{transition:border-color .12s,background .12s}}
+</style>
+
+<div class="app">
+  <header class="cab">
+    <div class="marca">
+      <svg viewBox="0 0 28 28" aria-hidden="true"><rect x="3" y="2" width="22" height="24" rx="3" fill="var(--ficha)" stroke="var(--tinta)" stroke-width="1.6"/><path d="M14 21c0-6 2-9 6-11-1 5-2 9-6 11zm0 0c0-4-2-6-5-7 0 4 2 6 5 7z" fill="var(--pino)"/><path d="M14 22v-7" stroke="var(--tinta)" stroke-width="1.4" fill="none"/></svg>
+      Constitución en Calma
+    </div>
+    <nav class="nav" id="nav" aria-label="Secciones"></nav>
+  </header>
+  <main id="v" class="col"></main>
+  <footer class="pie">Texto consolidado del BOE (BOE-A-1978-31229), con las reformas de 1992, 2011, 2024 y 2026. Cada respuesta enseña la cita literal del artículo. Tu progreso se guarda solo en este dispositivo.</footer>
+</div>
+
+<script>
+const BANCO=[{"i":"1-1","t":"Preliminar","a":"1","q":"Según el artículo 1.1, ¿cuáles son los valores superiores del ordenamiento jurídico español?","o":["La libertad, la justicia, la igualdad y el pluralismo político","La libertad, la igualdad, la solidaridad y la seguridad jurídica","La justicia, la igualdad, la dignidad y el pluralismo político","La libertad, la justicia, la legalidad y la igualdad"],"c":"propugna como valores superiores de su ordenamiento jurídico la libertad, la justicia, la igualdad y el pluralismo político"},{"i":"1-2","t":"Preliminar","a":"1","q":"España se constituye, según el artículo 1.1, en:","o":["Un Estado social y democrático de Derecho","Un Estado democrático y autonómico de Derecho","Un Estado social, liberal y de Derecho","Una Monarquía social y democrática"],"c":"España se constituye en un Estado social y democrático de Derecho"},{"i":"1-3","t":"Preliminar","a":"1","q":"¿En quién reside la soberanía nacional?","o":["En el pueblo español","En las Cortes Generales","En la Nación española y sus nacionalidades","En el Rey, como Jefe del Estado"],"c":"La soberanía nacional reside en el pueblo español, del que emanan los poderes del Estado."},{"i":"10-1","t":"I","a":"10","q":"¿Cuál de los siguientes NO figura en el artículo 10.1 como fundamento del orden político y de la paz social?","o":["La igualdad ante la ley","La dignidad de la persona","El libre desarrollo de la personalidad","El respeto a la ley y a los derechos de los demás"],"c":"La dignidad de la persona, los derechos inviolables que le son inherentes, el libre desarrollo de la personalidad, el respeto a la ley y a los derechos de los demás son fundamento del orden político y de la paz social."},{"i":"10-2","t":"I","a":"10","q":"Las normas relativas a los derechos fundamentales y a las libertades se interpretarán de conformidad con:","o":["La Declaración Universal de Derechos Humanos y los tratados y acuerdos internacionales ratificados por España","El Convenio Europeo de Derechos Humanos exclusivamente","La jurisprudencia del Tribunal Supremo","La Carta de las Naciones Unidas y las leyes orgánicas"],"c":"se interpretarán de conformidad con la Declaración Universal de Derechos Humanos y los tratados y acuerdos internacionales sobre las mismas materias ratificados por España"},{"i":"11-1","t":"I","a":"11","q":"Según el artículo 11.2:","o":["Ningún español de origen podrá ser privado de su nacionalidad","Ningún español podrá ser privado de su nacionalidad","Los españoles de origen solo podrán perder la nacionalidad por sentencia firme","Ningún español de origen podrá renunciar a su nacionalidad"],"c":"Ningún español de origen podrá ser privado de su nacionalidad."},{"i":"11-2","t":"I","a":"11","q":"El Estado podrá concertar tratados de doble nacionalidad con:","o":["Los países iberoamericanos o con aquellos que hayan tenido o tengan una particular vinculación con España","Los países de la Unión Europea exclusivamente","Cualquier Estado que reconozca un derecho recíproco","Los países iberoamericanos, Portugal y Filipinas"],"c":"El Estado podrá concertar tratados de doble nacionalidad con los países iberoamericanos o con aquellos que hayan tenido o tengan una particular vinculación con España."},{"i":"12-1","t":"I","a":"12","q":"Los españoles son mayores de edad a los:","o":["Dieciocho años","Dieciséis años","Veintiún años","Dieciocho años, salvo que la ley disponga otra cosa"],"c":"Los españoles son mayores de edad a los dieciocho años."},{"i":"13-1","t":"I","a":"13","q":"Atendiendo a criterios de reciprocidad, podrá establecerse por tratado o ley para los extranjeros:","o":["El derecho de sufragio activo y pasivo en las elecciones municipales","El derecho de sufragio activo en las elecciones generales","El derecho de sufragio activo, pero no pasivo, en las elecciones municipales","El derecho de sufragio activo y pasivo en las elecciones autonómicas"],"c":"pueda establecerse por tratado o ley para el derecho de sufragio activo y pasivo en las elecciones municipales"},{"i":"13-2","t":"I","a":"13","q":"Respecto de la extradición, la Constitución establece que:","o":["Quedan excluidos los delitos políticos, no considerándose como tales los actos de terrorismo","Quedan excluidos los delitos políticos y los actos de terrorismo","Solo se concederá por resolución del Gobierno","Quedan excluidos los delitos militares y los políticos"],"c":"Quedan excluidos de la extradición los delitos políticos, no considerándose como tales los actos de terrorismo."},{"i":"13-3","t":"I","a":"13","q":"¿Quiénes podrán gozar del derecho de asilo en España en los términos que establezca la ley?","o":["Los ciudadanos de otros países y los apátridas","Solo los ciudadanos de países iberoamericanos","Los extranjeros perseguidos por delitos políticos","Los ciudadanos de otros países, excluidos los apátridas"],"c":"La ley establecerá los términos en que los ciudadanos de otros países y los apátridas podrán gozar del derecho de asilo en España."},{"i":"14-1","t":"I","a":"14","q":"¿Cuál de estas causas de discriminación NO se menciona expresamente en el artículo 14?","o":["Lengua","Nacimiento","Religión","Opinión"],"c":"sin que pueda prevalecer discriminación alguna por razón de nacimiento, raza, sexo, religión, opinión o cualquier otra condición o circunstancia personal o social"},{"i":"56-1","t":"II","a":"56","q":"Según el artículo 56.1, el Rey es:","o":["El Jefe del Estado, símbolo de su unidad y permanencia","El Jefe del Gobierno y símbolo de la Nación","El Jefe del Estado y titular del poder ejecutivo","El Jefe del Estado y de las Cortes Generales"],"c":"El Rey es el Jefe del Estado, símbolo de su unidad y permanencia"},{"i":"56-2","t":"II","a":"56","q":"El Rey asume la más alta representación del Estado español en las relaciones internacionales, especialmente con:","o":["Las naciones de su comunidad histórica","Los países de la Unión Europea","Los países iberoamericanos y europeos","Las naciones con tratados de doble nacionalidad"],"c":"especialmente con las naciones de su comunidad histórica"},{"i":"56-3","t":"II","a":"56","q":"La persona del Rey es:","o":["Inviolable y no está sujeta a responsabilidad","Inviolable, salvo por delitos de traición","Inmune durante su reinado, pero responsable tras él","Responsable solo ante las Cortes Generales"],"c":"La persona del Rey es inviolable y no está sujeta a responsabilidad."},{"i":"66-1","t":"III","a":"66","q":"Las Cortes Generales representan al pueblo español y están formadas por:","o":["El Congreso de los Diputados y el Senado","El Congreso, el Senado y las Asambleas autonómicas","El Congreso de los Diputados y la Diputación Permanente","El Congreso, el Senado y el Gobierno"],"c":"Las Cortes Generales representan al pueblo español y están formadas por el Congreso de los Diputados y el Senado."},{"i":"66-2","t":"III","a":"66","q":"¿Cuál de las siguientes NO es una función que el artículo 66.2 atribuye a las Cortes Generales?","o":["Dirigir la política interior y exterior","Ejercer la potestad legislativa del Estado","Aprobar sus Presupuestos","Controlar la acción del Gobierno"],"c":"Las Cortes Generales ejercen la potestad legislativa del Estado, aprueban sus Presupuestos, controlan la acción del Gobierno"},{"i":"66-3","t":"III","a":"66","q":"Según el artículo 66.3, las Cortes Generales son:","o":["Inviolables","Inamovibles","Irresponsables","Indisolubles"],"c":"Las Cortes Generales son inviolables."},{"i":"67-1","t":"III","a":"67","q":"Los miembros de las Cortes Generales:","o":["No estarán ligados por mandato imperativo","Estarán ligados por el mandato de sus electores","Estarán ligados por el mandato de su partido","Solo estarán ligados por mandato imperativo en las votaciones de investidura"],"c":"Los miembros de las Cortes Generales no estarán ligados por mandato imperativo."},{"i":"67-2","t":"III","a":"67","q":"Nadie podrá acumular el acta de una Asamblea de Comunidad Autónoma con la de:","o":["Diputado al Congreso","Senador","Concejal","Diputado provincial"],"c":"ni acumular el acta de una Asamblea de Comunidad Autónoma con la de Diputado al Congreso"},{"i":"68-1","t":"III","a":"68","q":"El Congreso se compone de:","o":["Un mínimo de 300 y un máximo de 400 Diputados","Un mínimo de 350 y un máximo de 400 Diputados","350 Diputados","Un mínimo de 300 y un máximo de 350 Diputados"],"c":"El Congreso se compone de un mínimo de 300 y un máximo de 400 Diputados"},{"i":"68-2","t":"III","a":"68","q":"La circunscripción electoral para el Congreso es:","o":["La provincia","La Comunidad Autónoma","El municipio","El partido judicial"],"c":"La circunscripción electoral es la provincia."},{"i":"97-1","t":"IV","a":"97","q":"Según el artículo 97, el Gobierno dirige:","o":["La política interior y exterior, la Administración civil y militar y la defensa del Estado","La política interior y exterior y la Administración de Justicia","La política general del Estado y las Fuerzas Armadas bajo el mando de las Cortes","La Administración civil, con exclusión de la militar"],"c":"El Gobierno dirige la política interior y exterior, la Administración civil y militar y la defensa del Estado."},{"i":"97-2","t":"IV","a":"97","q":"El Gobierno ejerce:","o":["La función ejecutiva y la potestad reglamentaria","La función ejecutiva y la potestad legislativa","La potestad reglamentaria y la jurisdiccional","La función ejecutiva y el control parlamentario"],"c":"Ejerce la función ejecutiva y la potestad reglamentaria de acuerdo con la Constitución y las leyes."},{"i":"98-1","t":"IV","a":"98","q":"El Gobierno se compone de:","o":["El Presidente, los Vicepresidentes, en su caso, los Ministros y los demás miembros que establezca la ley","El Presidente, los Ministros y los Secretarios de Estado","El Presidente, los Vicepresidentes y los Ministros exclusivamente","El Rey, el Presidente y los Ministros"],"c":"El Gobierno se compone del Presidente, de los Vicepresidentes, en su caso, de los Ministros y de los demás miembros que establezca la ley."},{"i":"108-1","t":"V","a":"108","q":"El Gobierno responde solidariamente en su gestión política ante:","o":["El Congreso de los Diputados","Las Cortes Generales","El Rey","El Congreso y el Senado"],"c":"El Gobierno responde solidariamente en su gestión política ante el Congreso de los Diputados."},{"i":"111-1","t":"V","a":"111","q":"Para las interpelaciones y preguntas, los Reglamentos de las Cámaras establecerán:","o":["Un tiempo mínimo semanal","Un tiempo máximo mensual","Una sesión quincenal","Un turno diario"],"c":"Para esta clase de debate los Reglamentos establecerán un tiempo mínimo semanal."},{"i":"112-1","t":"V","a":"112","q":"La cuestión de confianza la plantea:","o":["El Presidente del Gobierno, previa deliberación del Consejo de Ministros","El Consejo de Ministros, a propuesta del Presidente","El Presidente del Gobierno, previa autorización del Rey","La décima parte de los Diputados"],"c":"El Presidente del Gobierno, previa deliberación del Consejo de Ministros, puede plantear ante el Congreso de los Diputados la cuestión de confianza"},{"i":"117-1","t":"VI","a":"117","q":"La justicia emana del pueblo y se administra:","o":["En nombre del Rey por Jueces y Magistrados integrantes del poder judicial","En nombre del pueblo por Jueces y Magistrados","En nombre del Estado por el Consejo General del Poder Judicial","En nombre de la ley por los Tribunales"],"c":"La justicia emana del pueblo y se administra en nombre del Rey por Jueces y Magistrados integrantes del poder judicial"},{"i":"117-2","t":"VI","a":"117","q":"Los Jueces y Magistrados son, según el artículo 117.1:","o":["Independientes, inamovibles, responsables y sometidos únicamente al imperio de la ley","Independientes, inviolables, irresponsables y sometidos a la ley","Imparciales, inamovibles y sometidos al Consejo General del Poder Judicial","Independientes, inamovibles e inviolables"],"c":"independientes, inamovibles, responsables y sometidos únicamente al imperio de la ley"},{"i":"128-1","t":"VII","a":"128","q":"Toda la riqueza del país en sus distintas formas y sea cual fuere su titularidad está subordinada a:","o":["El interés general","El interés social","La utilidad pública","La planificación económica"],"c":"Toda la riqueza del país en sus distintas formas y sea cual fuere su titularidad está subordinada al interés general."},{"i":"128-2","t":"VII","a":"128","q":"Mediante ley se podrá reservar al sector público recursos o servicios esenciales:","o":["Especialmente en caso de monopolio","Solo en caso de guerra","Únicamente en caso de quiebra","Especialmente en caso de huelga"],"c":"Mediante ley se podrá reservar al sector público recursos o servicios esenciales, especialmente en caso de monopolio"},{"i":"129-1","t":"VII","a":"129","q":"Los poderes públicos fomentarán, mediante una legislación adecuada:","o":["Las sociedades cooperativas","Las sociedades anónimas","Las empresas públicas","Las sociedades mercantiles de capital mixto"],"c":"fomentarán, mediante una legislación adecuada, las sociedades cooperativas"},{"i":"137-1","t":"VIII","a":"137","q":"El Estado se organiza territorialmente en:","o":["Municipios, provincias y las Comunidades Autónomas que se constituyan","Municipios, comarcas, provincias y Comunidades Autónomas","Provincias y Comunidades Autónomas","Municipios, provincias, islas y regiones"],"c":"El Estado se organiza territorialmente en municipios, en provincias y en las Comunidades Autónomas que se constituyan."},{"i":"138-1","t":"VIII","a":"138","q":"Al garantizar el principio de solidaridad, el Estado atenderá en particular a las circunstancias de:","o":["El hecho insular","Las zonas de montaña","Las regiones ultraperiféricas","Las provincias limítrofes"],"c":"atendiendo en particular a las circunstancias del hecho insular"},{"i":"138-2","t":"VIII","a":"138","q":"Las diferencias entre los Estatutos de las distintas Comunidades Autónomas no podrán implicar, en ningún caso:","o":["Privilegios económicos o sociales","Diferencias competenciales","Distintas instituciones de autogobierno","Diferencias lingüísticas"],"c":"no podrán implicar, en ningún caso, privilegios económicos o sociales"},{"i":"140-1","t":"VIII","a":"140","q":"Los Concejales serán elegidos por:","o":["Los vecinos del municipio mediante sufragio universal, igual, libre, directo y secreto","Los Alcaldes","Los vecinos o por los Alcaldes","Las Diputaciones provinciales"],"c":"Los Concejales serán elegidos por los vecinos del municipio mediante sufragio universal, igual, libre, directo y secreto"},{"i":"159-1","t":"IX","a":"159","q":"El Tribunal Constitucional se compone de:","o":["12 miembros nombrados por el Rey","20 miembros nombrados por el Rey","12 miembros nombrados por las Cortes Generales","15 miembros nombrados por el Rey"],"c":"El Tribunal Constitucional se compone de 12 miembros nombrados por el Rey"},{"i":"159-2","t":"IX","a":"159","q":"De los 12 miembros del Tribunal Constitucional, el Gobierno propone:","o":["Dos","Cuatro","Tres","Uno"],"c":"dos a propuesta del Gobierno, y dos a propuesta del Consejo General del Poder Judicial"},{"i":"166-1","t":"X","a":"166","q":"La iniciativa de reforma constitucional se ejercerá en los términos previstos en:","o":["Los apartados 1 y 2 del artículo 87","Los apartados 1, 2 y 3 del artículo 87","El apartado 3 del artículo 87","El artículo 92"],"c":"La iniciativa de reforma constitucional se ejercerá en los términos previstos en los apartados 1 y 2 del artículo 87."},{"i":"167-1","t":"X","a":"167","q":"Los proyectos de reforma constitucional del artículo 167 deberán ser aprobados por una mayoría de:","o":["Tres quintos de cada una de las Cámaras","Dos tercios de cada una de las Cámaras","Mayoría absoluta de cada una de las Cámaras","Tres quintos del Congreso y mayoría absoluta del Senado"],"c":"Los proyectos de reforma constitucional deberán ser aprobados por una mayoría de tres quintos de cada una de las Cámaras."}];
+const DEMO=true;
+const TOTAL=319;
+const URL_COMPLETA="https://rubenmind1.gumroad.com/l/nqrkhs";
+const TITULOS={Preliminar:["Título Preliminar","arts. 1 a 9"],I:["Derechos y deberes fundamentales","Título I · arts. 10 a 55"],II:["La Corona","Título II · arts. 56 a 65"],III:["Las Cortes Generales","Título III · arts. 66 a 96"],IV:["Gobierno y Administración","Título IV · arts. 97 a 107"],V:["Relaciones entre el Gobierno y las Cortes","Título V · arts. 108 a 116"],VI:["Poder Judicial","Título VI · arts. 117 a 127"],VII:["Economía y Hacienda","Título VII · arts. 128 a 136"],VIII:["Organización territorial del Estado","Título VIII · arts. 137 a 158"],IX:["Tribunal Constitucional","Título IX · arts. 159 a 165"],X:["Reforma constitucional","Título X · arts. 166 a 169"]};
+const INTERVALO=[0,1,3,7,16,35];   // días hasta el siguiente repaso según la caja
+const POR_SESION=15, DOMINADA=3, CLAVE="cec.v1";
+const PORID=Object.fromEntries(BANCO.map(p=>[p.i,p]));
+const $=s=>document.querySelector(s);
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const hoy=()=>Math.floor((Date.now()-new Date().getTimezoneOffset()*6e4)/864e5);
+const baraja=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+
+let S={c:{},r:{d:0,n:0},h:[]};
+try{const g=JSON.parse(localStorage.getItem(CLAVE));if(g&&g.c)S=Object.assign(S,g)}catch(e){}
+const guardar=()=>{try{localStorage.setItem(CLAVE,JSON.stringify(S))}catch(e){}};
+let vista="hoy", ses=null, reloj=null, armado=null;
+
+function anota(id,bien){
+  const c=S.c[id]||(S.c[id]={b:0,d:0,ok:0,ko:0,f:0});
+  if(bien){c.ok++;c.b=Math.min(5,c.b+1);c.f=0}else{c.ko++;c.b=1;c.f=1}
+  c.d=hoy()+INTERVALO[c.b];
+  const h=hoy();
+  if(S.r.d!==h){S.r.n=S.r.d===h-1?S.r.n+1:1;S.r.d=h}
+  guardar();
+}
+const racha=()=>S.r.d>=hoy()-1?S.r.n:0;
+const vencidas=()=>BANCO.filter(p=>S.c[p.i]&&S.c[p.i].d<=hoy());
+const fallos=()=>BANCO.filter(p=>S.c[p.i]&&S.c[p.i].f);
+const dominadas=l=>l.filter(p=>S.c[p.i]&&S.c[p.i].b>=DOMINADA).length;
+function notaExamen(ok,ko,n){return Math.max(0,(ok-ko/3)/n*10)}   // cada error resta un tercio de acierto
+
+function empieza(tipo,lista,extra){
+  if(!lista.length)return;
+  ses=Object.assign({tipo,ids:lista.map(p=>p.i),k:0,resp:[],orden:lista.map(()=>baraja([0,1,2,3])),fin:false},extra||{});
+  if(tipo==="simulacro"){
+    ses.limite=Date.now()+ses.ids.length*60e3;
+    clearInterval(reloj);
+    reloj=setInterval(()=>{const r=$("#reloj");const s=Math.max(0,Math.round((ses.limite-Date.now())/1e3));if(r)r.textContent=Math.floor(s/60)+":"+String(s%60).padStart(2,"0");if(s<=0)termina()},500);
+  }
+  vista="sesion";pinta();
+}
+function sesionHoy(){
+  const v=vencidas().sort((a,b)=>S.c[a.i].d-S.c[b.i].d).slice(0,POR_SESION);
+  const nuevas=BANCO.filter(p=>!S.c[p.i]).slice(0,POR_SESION-v.length);
+  empieza("hoy",baraja(v.concat(nuevas)));
+}
+function sesionTema(t){
+  const caja=p=>S.c[p.i]?S.c[p.i].b:-1;
+  empieza("tema",baraja(baraja(BANCO.filter(p=>p.t===t)).sort((a,b)=>caja(a)-caja(b)).slice(0,POR_SESION)),{titulo:TITULOS[t][0]});
+}
+function termina(){
+  clearInterval(reloj);
+  let ok=0,ko=0;
+  ses.ids.forEach((id,k)=>{const r=ses.resp[k];if(r==null)return;r===0?ok++:ko++;if(ses.tipo==="simulacro")anota(id,r===0)});
+  ses.ok=ok;ses.ko=ko;ses.fin=true;
+  if(ses.tipo==="simulacro"){S.h.push({d:hoy(),n:ses.ids.length,ok,ko,nota:+notaExamen(ok,ko,ses.ids.length).toFixed(2)});S.h=S.h.slice(-30);guardar()}
+  vista="resultado";pinta();
+}
+
+/* ---------- vistas ---------- */
+function anillo(pct){
+  const R=48,C=2*Math.PI*R;
+  return `<svg class="anillo" viewBox="0 0 112 112" role="img" aria-label="${pct} % dominado"><circle cx="56" cy="56" r="${R}" fill="none" stroke="var(--linea)" stroke-width="9"/>${pct?`<circle cx="56" cy="56" r="${R}" fill="none" stroke="var(--pino)" stroke-width="9" stroke-linecap="round" stroke-dasharray="${C*pct/100} ${C}" transform="rotate(-90 56 56)"/>`:""}<text x="56" y="63" text-anchor="middle" font-size="24">${pct}%</text></svg>`;
+}
+function avisoDemo(){
+  if(!DEMO)return "";
+  const enlace=URL_COMPLETA?` <a href="${esc(URL_COMPLETA)}" target="_blank" rel="noopener">Conseguir la versión completa</a>`:"";
+  return `<p class="aviso">Muestra gratuita: ${BANCO.length} de las ${TOTAL} preguntas. La versión completa recorre los once títulos e incluye simulacros de examen.${enlace}</p>`;
+}
+function vHoy(){
+  const v=vencidas().length, nuevas=BANCO.filter(p=>!S.c[p.i]).length, dom=dominadas(BANCO);
+  const pct=Math.round(dom/BANCO.length*100), n=Math.min(POR_SESION,v+nuevas);
+  const plan=n?`${Math.min(v,POR_SESION)} de repaso y ${n-Math.min(v,POR_SESION)} nuevas. Unos ${Math.max(3,Math.round(n*0.6))} minutos.`:"No te toca repasar nada hoy. Puedes adelantar por temas o hacer un simulacro.";
+  const f=fallos().length;
+  return `${avisoDemo()}
+  <section class="ficha hoy">
+    ${anillo(pct)}
+    <div class="col">
+      <div><p class="eti">Sesión de hoy</p><h1>${n?n+" preguntas te esperan":"Todo al día"}</h1></div>
+      <p class="sub">${plan}</p>
+      <div class="fila"><button class="btn" data-a="hoy" ${n?"":"disabled"}>Empezar la sesión</button>${f?`<button class="btn sec" data-a="fallos">Repasar mis ${f} fallos</button>`:""}</div>
+    </div>
+  </section>
+  <section class="datos">
+    <div class="dato racha"><b>${racha()}</b><span class="sub">días seguidos</span></div>
+    <div class="dato"><b>${dom}<span class="sub"> / ${BANCO.length}</span></b><span class="sub">dominadas</span></div>
+    <div class="dato"><b>${v}</b><span class="sub">repasos pendientes</span></div>
+  </section>
+  <p class="sub">Una pregunta cuenta como dominada cuando la aciertas en tres repasos seguidos, separados por 1, 3 y 7 días. Si la fallas, vuelve mañana.</p>`;
+}
+function vTemas(){
+  const filas=Object.keys(TITULOS).map(t=>{
+    const l=BANCO.filter(p=>p.t===t);if(!l.length)return "";
+    const d=dominadas(l);
+    return `<button class="tema" data-a="tema" data-t="${t}"><span><h3>${TITULOS[t][0]}</h3><span class="sub">${TITULOS[t][1]}</span></span><span class="num sub">${d} / ${l.length}</span><span class="barra"><i style="width:${d/l.length*100}%"></i></span></button>`}).join("");
+  return `${avisoDemo()}<div><h1>Temas</h1><p class="sub">Sesiones de ${POR_SESION} preguntas por título. Salen primero las que no has visto y las que peor llevas.</p></div><section class="temas">${filas}</section>`;
+}
+function vSimulacro(){
+  if(DEMO)return `<div><h1>Simulacro de examen</h1></div>${avisoDemo()}`;
+  const b=n=>`<button class="btn ${n===40?"":"sec"}" data-a="simulacro" data-n="${n}">${n} preguntas · ${n} min</button>`;
+  const hist=S.h.length?`<section class="col"><h2>Tus últimos simulacros</h2><table><thead><tr><th>Fecha</th><th>Aciertos</th><th>Errores</th><th>En blanco</th><th>Nota</th></tr></thead><tbody>${S.h.slice(-6).reverse().map(x=>`<tr><td>${new Date(x.d*864e5).toLocaleDateString("es-ES",{day:"numeric",month:"short"})}</td><td>${x.ok}</td><td>${x.ko}</td><td>${x.n-x.ok-x.ko}</td><td><b>${x.nota.toFixed(2).replace(".",",")}</b></td></tr>`).join("")}</tbody></table></section>`:"";
+  return `<div><h1>Simulacro de examen</h1><p class="sub">Como el día del examen: un minuto por pregunta, sin ver la solución hasta entregar, y cada error resta un tercio de un acierto. Puedes dejar preguntas en blanco.</p></div>
+  <div class="fila">${b(20)}${b(40)}${b(60)}</div>${hist}`;
+}
+function vProgreso(){
+  const vistas=BANCO.filter(p=>S.c[p.i]);
+  const ok=vistas.reduce((s,p)=>s+S.c[p.i].ok,0), ko=vistas.reduce((s,p)=>s+S.c[p.i].ko,0);
+  const porArt={};vistas.forEach(p=>{if(S.c[p.i].ko)porArt[p.a]=(porArt[p.a]||0)+S.c[p.i].ko});
+  const peores=Object.entries(porArt).sort((a,b)=>b[1]-a[1]).slice(0,8);
+  return `<div><h1>Progreso</h1></div>
+  <section class="datos">
+    <div class="dato"><b>${vistas.length}<span class="sub"> / ${BANCO.length}</span></b><span class="sub">preguntas vistas</span></div>
+    <div class="dato"><b>${ok+ko?Math.round(ok/(ok+ko)*100)+"%":"—"}</b><span class="sub">de acierto (${ok+ko} respuestas)</span></div>
+    <div class="dato racha"><b>${racha()}</b><span class="sub">días seguidos</span></div>
+  </section>
+  <section class="col"><h2>Artículos que más fallas</h2>${peores.length?`<table><thead><tr><th>Artículo</th><th>Título</th><th>Fallos</th></tr></thead><tbody>${peores.map(([a,n])=>`<tr><td><b>Art. ${a} CE</b></td><td>${TITULOS[BANCO.find(p=>p.a===a).t][0]}</td><td>${n}</td></tr>`).join("")}</tbody></table>`:`<p class="sub">Aquí aparecerán los artículos donde más tropiezas, para que sepas qué releer.</p>`}</section>
+  <section class="col"><h2>Empezar de cero</h2><p class="sub">Borra todo el progreso guardado en este dispositivo.</p><div><button class="btn ${armado==="borrar"?"peligro":"sec"}" data-a="borrar">${armado==="borrar"?"Pulsa otra vez para borrarlo todo":"Borrar mi progreso"}</button></div></section>`;
+}
+function citaBOE(p){
+  return `<div class="boe"><div class="ref"><b>Art. ${p.a} CE</b><span class="eti">Texto literal · BOE</span></div><q>${esc(p.c)}</q></div>`;
+}
+function vSesion(){
+  const p=PORID[ses.ids[ses.k]], r=ses.resp[ses.k], sim=ses.tipo==="simulacro", visto=!sim&&r!==undefined;
+  const ops=ses.orden[ses.k].map((o,n)=>{
+    let cls="";
+    if(sim){if(r===o)cls="sel"}else if(visto){if(o===0)cls="bien";else if(o===r)cls="mal"}
+    return `<button class="op ${cls}" data-a="resp" data-o="${o}" ${visto?"disabled":""}><span class="letra">${"ABCD"[n]}</span><span>${esc(p.o[o])}</span></button>`}).join("");
+  const ultima=ses.k===ses.ids.length-1;
+  let pie;
+  if(sim){
+    const blancos=ses.ids.filter((_,k)=>ses.resp[k]==null).length;
+    pie=`<div class="fila"><button class="btn sec" data-a="ant" ${ses.k?"":"disabled"}>Anterior</button>${ultima?"":`<button class="btn" data-a="sig">${r==null?"Dejar en blanco":"Siguiente"}</button>`}<button class="btn ${armado==="entregar"?"peligro":ultima?"":"sec"}" data-a="entregar">${armado==="entregar"?`Quedan ${blancos} en blanco. Pulsa otra vez para entregar`:"Entregar examen"}</button></div>`;
+  }else if(visto){
+    pie=`<p class="veredicto ${r===0?"bien":"mal"}">${r===0?"Correcto":"No. La respuesta correcta está marcada en verde"}</p>${citaBOE(p)}<div><button class="btn" data-a="sig" id="sig">${ultima?"Ver resultado":"Siguiente"}</button></div>`;
+  }else pie=`<p class="sub">Elige una respuesta. También puedes usar las teclas 1 a 4.</p>`;
+  const nombre={hoy:"Sesión de hoy",tema:ses.titulo,fallos:"Repaso de fallos",simulacro:"Simulacro"}[ses.tipo];
+  return `<div class="fila" style="justify-content:space-between"><span class="eti">${esc(nombre)} · <span class="num">${ses.k+1} / ${ses.ids.length}</span>${sim?` · <span class="num" id="reloj"></span>`:""}</span><button class="btn sec" data-a="salir" style="padding:6px 12px">${armado==="salir"?"Pulsa otra vez para salir":"Salir"}</button></div>
+  <div class="barra"><i style="width:${(ses.k+(visto?1:0))/ses.ids.length*100}%"></i></div>
+  <p class="eti">${TITULOS[p.t][0]}</p>
+  <h2 class="pregunta">${esc(p.q)}</h2>
+  <div class="ops">${ops}</div>${pie}`;
+}
+function vResultado(){
+  const n=ses.ids.length, sim=ses.tipo==="simulacro", bl=n-ses.ok-ses.ko;
+  const malas=ses.ids.map((id,k)=>[PORID[id],ses.resp[k]]).filter(([,r])=>r!==0);
+  const cab=sim
+    ?`<p class="eti">Nota del simulacro</p><p class="nota">${notaExamen(ses.ok,ses.ko,n).toFixed(2).replace(".",",")}</p><p class="sub">${ses.ok} aciertos − ${ses.ko} errores ÷ 3, sobre ${n} preguntas. ${bl} en blanco.</p>`
+    :`<p class="eti">Sesión terminada</p><p class="nota">${ses.ok} / ${n}</p><p class="sub">${ses.ko?`Las ${ses.ko} que has fallado vuelven mañana.`:"Ni un fallo. Estas preguntas se alejan en el calendario."}</p>`;
+  const lista=malas.map(([p,r])=>`<div class="fallo"><h3>${esc(p.q)}</h3>${r==null?`<p class="sub">La dejaste en blanco.</p>`:`<p class="tuya">Tu respuesta: ${esc(p.o[r])}</p>`}<p class="buena">Correcta: ${esc(p.o[0])}</p>${citaBOE(p)}</div>`).join("");
+  return `<section class="ficha col">${cab}<div class="fila">${malas.length?`<button class="btn" data-a="refallos">Repetir las ${malas.length} que no acertaste</button>`:""}<button class="btn ${malas.length?"sec":""}" data-a="ir" data-v="hoy">Volver al inicio</button></div></section>
+  ${malas.length?`<section class="col"><h2>Para releer</h2>${lista}</section>`:""}`;
+}
+function pinta(){
+  const enSesion=vista==="sesion";
+  $("#nav").innerHTML=enSesion?"":[["hoy","Hoy"],["temas","Temas"],["simulacro","Simulacro"],["progreso","Progreso"]].map(([v,t])=>`<button data-a="ir" data-v="${v}" ${vista===v?'aria-current="page"':""}>${t}</button>`).join("");
+  $("#v").innerHTML={hoy:vHoy,temas:vTemas,simulacro:vSimulacro,progreso:vProgreso,sesion:vSesion,resultado:vResultado}[vista]();
+  if(enSesion&&$("#sig"))$("#sig").focus({preventScroll:true});
+}
+/* Las acciones delicadas piden un segundo toque en vez de un cuadro de confirmación. */
+function dosToques(nombre,hacer){if(armado===nombre){armado=null;hacer()}else{armado=nombre;pinta()}}
+function accion(a,d){
+  if(a!==armado&&!(a==="entregar"||a==="salir"||a==="borrar"))armado=null;
+  if(a==="ir"){vista=d.v;ses=null;clearInterval(reloj);pinta()}
+  else if(a==="hoy")sesionHoy();
+  else if(a==="fallos")empieza("fallos",baraja(fallos()).slice(0,POR_SESION));
+  else if(a==="tema")sesionTema(d.t);
+  else if(a==="simulacro")empieza("simulacro",baraja(BANCO).slice(0,+d.n));
+  else if(a==="resp"){
+    const o=+d.o;
+    if(ses.tipo==="simulacro"){ses.resp[ses.k]=ses.resp[ses.k]===o?null:o;pinta()}
+    else if(ses.resp[ses.k]===undefined){ses.resp[ses.k]=o;anota(ses.ids[ses.k],o===0);pinta()}
+  }
+  else if(a==="sig"){if(ses.k<ses.ids.length-1){ses.k++;pinta();window.scrollTo(0,0)}else termina()}
+  else if(a==="ant"){if(ses.k){ses.k--;pinta()}}
+  else if(a==="entregar"){ses.ids.some((_,k)=>ses.resp[k]==null)?dosToques("entregar",termina):termina()}
+  else if(a==="salir")dosToques("salir",()=>{clearInterval(reloj);ses=null;vista="hoy";pinta()});
+  else if(a==="refallos")empieza("fallos",ses.ids.filter((_,k)=>ses.resp[k]!==0).map(id=>PORID[id]));
+  else if(a==="borrar")dosToques("borrar",()=>{S={c:{},r:{d:0,n:0},h:[]};guardar();pinta()});
+}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-a]");if(b&&!b.disabled)accion(b.dataset.a,b.dataset)});
+document.addEventListener("keydown",e=>{
+  if(vista!=="sesion"||e.ctrlKey||e.metaKey||e.altKey)return;
+  const n="1234".indexOf(e.key);
+  if(n>=0){const b=document.querySelectorAll(".op")[n];if(b&&!b.disabled)b.click()}
+});
+pinta();
+</script>
+<style>.seo{max-width:720px;margin:0 auto;padding-inline:16px;padding-block:8px 56px;display:flex;flex-direction:column;gap:14px;color:var(--tinta)}.seo h2{font-size:1.15rem;margin-top:14px}.seo p,.seo li{color:var(--tinta2);max-width:65ch}.seo a{color:var(--pino);font-weight:700}.seo ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}</style>
+<section class="seo">
+<h2>Test de la Constitución Española para oposiciones, gratis y sin registro</h2>
+<p>Esta página es la muestra gratuita de Constitución en Calma: 41 preguntas tipo test repartidas por los once títulos de la Constitución Española de 1978. Al responder ves la respuesta correcta y la cita literal del artículo, tomada del texto consolidado del Boletín Oficial del Estado.</p>
+<h2>Cómo funciona el repaso</h2>
+<ul>
+<li>Cada día te propone una sesión corta: primero lo que toca repasar y luego preguntas nuevas.</li>
+<li>La pregunta que fallas vuelve al día siguiente. La que aciertas se aleja a 3, 7, 16 y 35 días.</li>
+<li>Tu progreso se guarda solo en tu navegador. No hay cuentas, ni anuncios, ni cookies de seguimiento.</li>
+</ul>
+<h2>Para qué oposiciones sirve</h2>
+<p>La Constitución entra en el temario de la mayoría de oposiciones: Auxiliar Administrativo y Administrativo del Estado, Justicia, Correos, Policía Nacional, Guardia Civil, ayuntamientos y comunidades autónomas.</p>
+<h2>Texto al día</h2>
+<p>Las preguntas siguen el texto vigente, con las reformas del artículo 13.2 (1992), el 135 (2011), el 49 (2024) y el 69.3 (2026).</p>
+<h2>Versión completa</h2>
+<p>La versión completa tiene 319 preguntas y simulacros de examen con reloj y penalización. Es un archivo que se descarga una vez, de pago único: <a href="https://rubenmind1.gumroad.com/l/nqrkhs">ver la versión completa</a>. También puedes <a href="https://rubenmind1.gumroad.com/l/xxrgsq">descargar esta muestra</a> para usarla sin conexión.</p>
+<p><a href="aviso-legal.html">Aviso legal y privacidad</a></p>
+</section>
+</body>
+</html>
