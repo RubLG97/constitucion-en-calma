@@ -179,6 +179,11 @@ function avisoDemo(){
   const enlace=URL_COMPLETA?` <a href="${esc(URL_COMPLETA)}" target="_blank" rel="noopener">Conseguir la versión completa</a>`:"";
   return `<p class="aviso">Muestra gratuita: ${BANCO.length} de las ${TOTAL} preguntas. La versión completa recorre los once títulos e incluye simulacros de examen.${enlace}</p>`;
 }
+function ventaDemo(){
+  if(!DEMO||!URL_COMPLETA)return "";
+  const vistas=BANCO.filter(p=>S.c[p.i]).length;
+  return `<section class="ficha col"><p class="eti">Versión completa</p><h2>Llevas ${vistas} de las ${BANCO.length} preguntas de la muestra. En la completa hay ${TOTAL}.</h2><p class="sub">Incluye simulacros con reloj y penalización, como el examen. Pago único, sin suscripción.</p><div><a class="btn" style="display:inline-block;text-decoration:none" href="${esc(URL_COMPLETA)}" target="_blank" rel="noopener">Ver la versión completa</a></div></section>`;
+}
 function vHoy(){
   const v=vencidas().length, nuevas=BANCO.filter(p=>!S.c[p.i]).length, dom=dominadas(BANCO);
   const pct=Math.round(dom/BANCO.length*100), n=Math.min(POR_SESION,v+nuevas);
@@ -260,6 +265,7 @@ function vResultado(){
     :`<p class="eti">Sesión terminada</p><p class="nota">${ses.ok} / ${n}</p><p class="sub">${ses.ko?`Las ${ses.ko} que has fallado vuelven mañana.`:"Ni un fallo. Estas preguntas se alejan en el calendario."}</p>`;
   const lista=malas.map(([p,r])=>`<div class="fallo"><h3>${esc(p.q)}</h3>${r==null?`<p class="sub">La dejaste en blanco.</p>`:`<p class="tuya">Tu respuesta: ${esc(p.o[r])}</p>`}<p class="buena">Correcta: ${esc(p.o[0])}</p>${citaBOE(p)}</div>`).join("");
   return `<section class="ficha col">${cab}<div class="fila">${malas.length?`<button class="btn" data-a="refallos">Repetir las ${malas.length} que no acertaste</button>`:""}<button class="btn ${malas.length?"sec":""}" data-a="ir" data-v="hoy">Volver al inicio</button></div></section>
+  ${ventaDemo()}
   ${malas.length?`<section class="col"><h2>Para releer</h2>${lista}</section>`:""}`;
 }
 function pinta(){
