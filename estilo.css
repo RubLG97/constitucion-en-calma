@@ -29,6 +29,11 @@ body{margin:0;background:var(--papel);color:var(--tinta);font:17px/1.6 var(--tex
 .portada h1{font-family:var(--titular);font-size:1.7rem;line-height:1.12;margin:0;text-wrap:balance}
 .portada p{margin:0;color:var(--tinta2);max-width:60ch}
 .pie{color:var(--tinta2);font-size:.88rem;border-top:1px solid var(--linea);padding-top:14px}
+.puerta{display:flex;flex-direction:column;gap:10px;max-width:420px}
+.puerta label{font-family:var(--titular);font-weight:500}
+.puerta input{font:inherit;font-size:1.15rem;letter-spacing:.06em;padding:13px 14px;border:2px solid var(--linea);border-radius:10px;background:var(--ficha);color:var(--tinta)}
+.puerta .btn{background:var(--pino);color:var(--papel);border:0;border-radius:10px;padding:13px 20px;font:inherit;font-weight:700;cursor:pointer}
+.puerta #aviso{color:#B1432F;min-height:1.5em}
 :focus-visible{outline:3px solid var(--pino);outline-offset:2px}
 /* En la web, el aviso de muestra va tras la sesión del día y el anillo se encoge en móvil: el botón de empezar queda arriba. */
 #v .aviso{order:9}

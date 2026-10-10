@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Versión completa | Constitución en Calma</title>
+<meta name="description" content="Acceso a la versión completa de Constitución en Calma.">
+<link rel="canonical" href="https://rublg97.github.io/constitucion-en-calma/completa.html">
+<meta property="og:title" content="Versión completa | Constitución en Calma">
+<meta property="og:description" content="Acceso a la versión completa de Constitución en Calma.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rublg97.github.io/constitucion-en-calma/completa.html">
+<meta property="og:image" content="https://rublg97.github.io/constitucion-en-calma/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="google-site-verification" content="5ULXHZ3hiln4xu0r2iBA9AeeNuKXVJWwme-hZdTGYOo">
+<meta name="theme-color" content="#2B6A4D">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='3' y='2' width='22' height='24' rx='3' fill='%23fff' stroke='%2317211C' stroke-width='1.6'/%3E%3Cpath d='M14 21c0-6 2-9 6-11-1 5-2 9-6 11zm0 0c0-4-2-6-5-7 0 4 2 6 5 7z' fill='%232B6A4D'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="icono-192.png">
+<link rel="stylesheet" href="fuentes.css">
+<link rel="stylesheet" href="estilo.css">
+<meta name="robots" content="noindex">
+</head>
+<body>
+<main class="pag"><a class="marca" href="./"><svg viewBox="0 0 28 28" width="28" height="28" aria-hidden="true"><rect x="3" y="2" width="22" height="24" rx="3" fill="var(--ficha)" stroke="var(--tinta)" stroke-width="1.6"/><path d="M14 21c0-6 2-9 6-11-1 5-2 9-6 11zm0 0c0-4-2-6-5-7 0 4 2 6 5 7z" fill="var(--pino)"/><path d="M14 22v-7" stroke="var(--tinta)" stroke-width="1.4" fill="none"/></svg> Constitución en Calma</a><div><p class="eti">Versión completa · 319 preguntas y simulacros</p><h1>Entra con tu clave</h1></div><p>Escribe la clave que recibiste al comprar. Solo hace falta la primera vez en cada dispositivo; después esta página se abre sola, también sin conexión.</p><form id="puerta" class="puerta"><label for="clave">Clave de compra</label><input id="clave" name="clave" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="CALMA-XXXX-XXXX-XXXX"><button class="btn" type="submit">Entrar</button><p id="aviso" role="alert"></p></form><p class="sub">¿Aún no la tienes? <a href="https://rubenmind1.gumroad.com/l/nqrkhs?utm_source=web&utm_medium=puerta">Consigue la versión completa</a>. Mientras tanto puedes usar el <a href="./">test gratuito</a>.</p><p class="pie">Tu progreso se guarda solo en este dispositivo. <a href="aviso-legal.html">Aviso legal y privacidad</a></p></main>
+<script>
+const K="cec.clave";
+const b=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function abrir(clave){
+  const j=await (await fetch("completa.json",{cache:"no-cache"})).json();
+  const base=await crypto.subtle.importKey("raw",new TextEncoder().encode(clave),"PBKDF2",false,["deriveKey"]);
+  const llave=await crypto.subtle.deriveKey({name:"PBKDF2",salt:b(j.s),iterations:200000,hash:"SHA-256"},base,{name:"AES-GCM",length:256},false,["decrypt"]);
+  return new TextDecoder().decode(await crypto.subtle.decrypt({name:"AES-GCM",iv:b(j.i)},llave,b(j.d)));
+}
+async function entrar(clave,avisar){
+  clave=clave.toUpperCase().replace(/[^A-Z0-9]/g,"");
+  const aviso=document.getElementById("aviso");
+  if(!clave){if(avisar)aviso.textContent="Escribe la clave que recibiste al comprar.";return}
+  try{
+    const pagina=await abrir(clave);
+    try{localStorage.setItem(K,clave)}catch(e){}
+    document.open();document.write(pagina);document.close();
+  }catch(e){
+    if(!avisar)return;
+    aviso.textContent=e&&e.name==="OperationError"?"Esa clave no es correcta. Cópiala tal cual aparece en tu compra.":"No se ha podido cargar. Comprueba la conexión y vuelve a intentarlo.";
+  }
+}
+document.getElementById("puerta").addEventListener("submit",ev=>{ev.preventDefault();entrar(document.getElementById("clave").value,true)});
+let guardada="";try{guardada=localStorage.getItem(K)||""}catch(e){}
+if(guardada)entrar(guardada,false);
+if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
+</script>
+</body>
+</html>
