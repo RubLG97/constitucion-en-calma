@@ -1,4 +1,4 @@
-const CACHE="cec-v4";
+const CACHE="cec-v5";
 const BASE=["./","index.html","estilo.css","fuentes.css","manifest.webmanifest","icono-192.png",
 "fuentes/atkinson-hyperlegible-latin-400-normal.woff2","fuentes/atkinson-hyperlegible-latin-700-normal.woff2",
 "fuentes/bricolage-grotesque-latin-500-normal.woff2","fuentes/bricolage-grotesque-latin-700-normal.woff2"];
